@@ -2,6 +2,41 @@ img{
 	width: 10%;
   height: 10%;
 }
+h2{
+	text-align: center;
+}
+.item_content ul {
+	list-style:none;
+}
+.item_content ul li {
+	width:80px;
+	height:92px;
+	float:left;
+	margin:5px
+}
+.item_content {
+	background:#eee;
+	width:432px;
+	height:600px;
+	margin:5px auto;
+	border:1px solid #ccc;
+	border-radius:5px;
+}
+.item_content .item {
+	width:80px;
+	height:92px;
+	line-height:92px;
+	text-align:center;
+	cursor:pointer;
+	background:#ccc;
+}
+.item_content .item img {
+	width:80px;
+	height:92px;
+	border-radius:6px;
+	border:1px solid;
+}
+
 .lb-loader,.lightbox{
   text-align:center;
   line-height:0
