@@ -8,7 +8,7 @@ $(function() {
 			this.top = top ;
 		}
 		$(".item_content .item").each(function(i) {
-			this.init = function() { // 初始化
+			this.init = function() {
 				this.box = $(this).parent() ;
 				$(this).attr("index", i).css({
 					position : "absolute",
@@ -17,7 +17,7 @@ $(function() {
 				}).appendTo(".item_content") ;
 				this.drag() ;
 			},
-			this.move = function(callback) {  // 移动
+			this.move = function(callback) {
 				$(this).stop(true).animate({
 					left : this.box.offset().left,
 					top : this.box.offset().top
@@ -37,7 +37,6 @@ $(function() {
 						(currentItem.pointer.x < this.box.offset().left + this.box.width()) &&
 						(currentItem.pointer.y < this.box.offset().top + this.box.height())
 					) {
-						// 返回对象和方向
 						if(currentItem.box.offset().top < this.box.offset().top) {
 							direction = "down" ;
 						} else if(currentItem.box.offset().top > this.box.offset().top) {
@@ -49,7 +48,7 @@ $(function() {
 					}
 				}) ;
 			},
-			this.swap = function(currentItem, direction) { // 交换位置
+			this.swap = function(currentItem, direction) {
 				if(this.moveing) return false ;
 				var directions = {
 					normal : function() {
@@ -61,7 +60,6 @@ $(function() {
 						$(currentItem).attr("index", currentItem.box.index()) ;
 					},
 					down : function() {
-						// 移到上方
 						var box = this.box ;
 						var node = this ;
 						var startIndex = currentItem.box.index() ;
@@ -77,7 +75,6 @@ $(function() {
 						$(currentItem).attr("index", box.index()) ;
 					},
 					up : function() {
-						// 移到上方
 						var box = this.box ;
 						var node = this ;
 						var startIndex = node.box.index() ;
@@ -95,7 +92,7 @@ $(function() {
 				}
 				directions[direction].call(this) ;
 			},
-			this.drag = function() { // 拖拽
+			this.drag = function() {
 				var oldPosition = new Position() ;
 				var oldPointer = new Pointer() ;
 				var isDrag = false ;
@@ -124,8 +121,6 @@ $(function() {
 						top : top
 					}) ;
 					currentItem.pointer = currentPointer ;
-					// 开始交换位置
-					//素材家园 - www.sucaijiayuan.com
 					currentItem.collisionCheck() ;
 
 
